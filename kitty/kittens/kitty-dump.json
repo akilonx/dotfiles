@@ -1,0 +1,260 @@
+[
+  {
+    "background_opacity": 0.800000011920929,
+    "id": 1,
+    "is_active": true,
+    "is_focused": true,
+    "last_focused": true,
+    "platform_window_id": 48234507,
+    "tabs": [
+      {
+        "active_window_history": [
+          1
+        ],
+        "enabled_layouts": [
+          "stack"
+        ],
+        "groups": [
+          {
+            "id": 1,
+            "windows": [
+              1
+            ]
+          },
+          {
+            "id": 2,
+            "windows": [
+              2
+            ]
+          }
+        ],
+        "id": 1,
+        "is_active": false,
+        "is_focused": false,
+        "layout": "stack",
+        "layout_opts": {},
+        "layout_state": {},
+        "title": "bookipi-server-v2",
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish"
+            ],
+            "columns": 232,
+            "created_at": 1733147570862508628,
+            "cwd": "/home/akilon/projects/bookipi/bookipi-server-v2",
+            "env": {
+              "KITTY_WINDOW_ID": "1"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "nvim",
+                  "."
+                ],
+                "cwd": "/home/akilon/projects/bookipi/bookipi-server-v2",
+                "pid": 14848
+              }
+            ],
+            "id": 1,
+            "is_active": false,
+            "is_focused": false,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "nvim .",
+            "lines": 62,
+            "pid": 14499,
+            "title": "~/p/b/bookipi-server-v2",
+            "user_vars": {}
+          },
+          {
+            "at_prompt": true,
+            "cmdline": [
+              "/usr/bin/fish"
+            ],
+            "columns": 232,
+            "created_at": 1733147627908750981,
+            "cwd": "/home/akilon",
+            "env": {
+              "KITTY_WINDOW_ID": "2"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish"
+                ],
+                "cwd": "/home/akilon",
+                "pid": 14943
+              }
+            ],
+            "id": 2,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 62,
+            "pid": 14943,
+            "title": "~",
+            "user_vars": {}
+          }
+        ]
+      },
+      {
+        "active_window_history": [
+          4
+        ],
+        "enabled_layouts": [
+          "stack"
+        ],
+        "groups": [
+          {
+            "id": 3,
+            "windows": [
+              4
+            ]
+          },
+          {
+            "id": 4,
+            "windows": [
+              5
+            ]
+          }
+        ],
+        "id": 2,
+        "is_active": false,
+        "is_focused": false,
+        "layout": "stack",
+        "layout_opts": {},
+        "layout_state": {},
+        "title": "bookipay-server",
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish"
+            ],
+            "columns": 232,
+            "created_at": 1733147644984221485,
+            "cwd": "/home/akilon/projects/bookipi/bookipay-server",
+            "env": {
+              "KITTY_WINDOW_ID": "4"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "nvim",
+                  "."
+                ],
+                "cwd": "/home/akilon/projects/bookipi/bookipay-server",
+                "pid": 15601
+              }
+            ],
+            "id": 4,
+            "is_active": false,
+            "is_focused": false,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "nvim .",
+            "lines": 62,
+            "pid": 15251,
+            "title": "~/p/b/bookipay-server",
+            "user_vars": {}
+          },
+          {
+            "at_prompt": true,
+            "cmdline": [
+              "/usr/bin/fish"
+            ],
+            "columns": 232,
+            "created_at": 1733147671194738070,
+            "cwd": "/home/akilon/projects/bookipi/bookipay-server",
+            "env": {
+              "KITTY_WINDOW_ID": "5"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish"
+                ],
+                "cwd": "/home/akilon/projects/bookipi/bookipay-server",
+                "pid": 15676
+              }
+            ],
+            "id": 5,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "clear",
+            "lines": 62,
+            "pid": 15676,
+            "title": "~/p/b/bookipay-server",
+            "user_vars": {}
+          }
+        ]
+      },
+      {
+        "active_window_history": [
+          7
+        ],
+        "enabled_layouts": [
+          "stack"
+        ],
+        "groups": [
+          {
+            "id": 5,
+            "windows": [
+              7
+            ]
+          }
+        ],
+        "id": 3,
+        "is_active": true,
+        "is_focused": true,
+        "layout": "stack",
+        "layout_opts": {},
+        "layout_state": {},
+        "title": "~",
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish"
+            ],
+            "columns": 232,
+            "created_at": 1733147694132858980,
+            "cwd": "/home/akilon",
+            "env": {
+              "KITTY_WINDOW_ID": "7"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "kitten",
+                  "@",
+                  "ls"
+                ],
+                "cwd": "/home/akilon",
+                "pid": 16362
+              }
+            ],
+            "id": 7,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": true,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "kitty @ ls > kitty-dump.json",
+            "lines": 62,
+            "pid": 16043,
+            "title": "~",
+            "user_vars": {}
+          }
+        ]
+      }
+    ],
+    "wm_class": "kitty",
+    "wm_name": "kitty"
+  }
+]
