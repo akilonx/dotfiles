@@ -23,7 +23,8 @@ return {
   },
   { "zbirenbaum/copilot-cmp", opts = {} },
   {
-    dir = "~/projects/neovim/ChatGPT.nvim", -- Replace with the actual path to your plugin directory
+    -- dir = "~/projects/neovim/ChatGPT.nvim", -- Replace with the actual path to your plugin directory
+    dir = "~/projects/nvim/ChatGPT.nvim", -- Replace with the actual path to your plugin directory
     name = "chatgpt", -- Optional: name to refer to the plugin
     config = function()
       -- Plugin-specific configuration
@@ -46,10 +47,12 @@ return {
           -- model = "gpt-4-turbo-2024-04-09",
           -- model = "gpt-4o-2024-08-06",
           -- model = "o1-preview-2024-09-12",
+          -- model = "gpt-3.5-turbo",
           model = "o1-mini-2024-09-12",
+          max_tokens = 4095,
+          -- max_completion_tokens = 4095,
           frequency_penalty = 0,
           presence_penalty = 0,
-          max_completion_tokens = 4095,
           temperature = 1,
           top_p = 1,
           n = 1,
