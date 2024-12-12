@@ -83,11 +83,17 @@ end, { noremap = true, silent = true, desc = "Search visual selection in CWD" })
 
 -- Map <Tab> to show all opened files using Telescope
 keymap.set("n", "<Tab>", function()
+  vim.api.nvim_command("stopinsert") -- Force normal mode
   require("telescope.builtin").buffers({
     sort_lastused = true, -- Sort buffers by last used
     ignore_current_buffer = true, -- Do not show the current buffer
   })
 end, opts)
+
+-- Show last telescope window
+vim.keymap.set("n", "<leader><leader>", function()
+  require("telescope.builtin").resume()
+end, { noremap = true, silent = true, desc = "Resume last Telescope picker" })
 
 -- Harpoon keybindings
 keymap.set("n", "<leader>a", function()
@@ -182,19 +188,26 @@ keymap.set(
 )
 
 -- Blame the current file
-keymap.set("n", "gb", ":Gblame<CR>", { noremap = true, silent = true, desc = "Git blame (Fugitive)" })
+keymap.set("n", "gb", ":Git blame<CR>", { noremap = true, silent = true, desc = "Git blame (Fugitive)" })
 
 -- Open Git commit log for the current file
 keymap.set("n", "gl", ":Git log --oneline<CR>", { noremap = true, silent = true, desc = "Git log (oneline)" })
 
 -- Diff against a specific revision
-keymap.set("n", "gA", ":Gdiffsplit ", { noremap = true, silent = true, desc = "Git diff against revision" })
+-- keymap.set("n", "gA", ":Git diff ", { noremap = true, silent = true, desc = "Git diff against revision" })
+keymap.set("n", "gA", function()
+  vim.ui.input({ prompt = "Enter revision: " }, function(input)
+    if input then
+      vim.cmd("Gdiffsplit " .. input)
+    end
+  end)
+end, { noremap = true, silent = true, desc = "Git diff against revision" })
 
 -- View the commit for the line under the cursor (in blame)
 keymap.set(
   "n",
   "go",
-  ":Gedit <C-R>=expand('<cword>')<CR><CR>",
+  ":Git show <C-R>=expand('<cword>')<CR><CR>",
   { noremap = true, silent = true, desc = "Open commit from blame" }
 )
 

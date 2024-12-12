@@ -1,6 +1,11 @@
 return {
   {
+    "lewis6991/gitsigns.nvim",
+    enabled = false, -- Disable gitsigns
+  },
+  {
     "tpope/vim-fugitive",
+    lazy = false,
     keys = {
       { "gs", "<cmd>Git<CR>", desc = "Git status" },
       { "gc", "<cmd>Git commit<CR>", desc = "Git commit" },
