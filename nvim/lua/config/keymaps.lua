@@ -213,3 +213,6 @@ keymap.set(
 
 -- lsp code action
 keymap.set("n", "<C-.>", ":CodeActionMenu<CR>", { noremap = true, silent = true, desc = "LSP: Code Action Menu" })
+
+-- copilot chat
+keymap.set("v", "<leader>ce", ":'<,'>CopilotChatExplain<CR>", { noremap = true, silent = true })
