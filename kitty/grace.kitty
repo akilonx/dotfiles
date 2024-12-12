@@ -1,0 +1,20 @@
+new_tab gracewebsite 
+layout stack
+cd ~/projects/grace/gracewebsite/
+launch --env KITTY_WINDOW_ID=1 nvim 
+focus
+launch --env KITTY_WINDOW_ID=2 fish
+
+
+new_tab graceapi
+layout stack
+cd ~/projects/grace/graceapi/
+launch --env KITTY_WINDOW_ID=4 nvim
+launch --env KITTY_WINDOW_ID=5 fish
+
+
+new_tab app 
+layout stack
+cd ~/projects/grace/app/
+launch --env KITTY_WINDOW_ID=6 nvim 
+launch --env KITTY_WINDOW_ID=7 fish

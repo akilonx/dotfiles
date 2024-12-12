@@ -1,0 +1,20 @@
+new_tab app 
+layout stack
+cd ~/projects/smart4d/app
+launch --env KITTY_WINDOW_ID=1 nvim 
+focus
+launch --env KITTY_WINDOW_ID=2 fish
+
+
+new_tab serverless
+layout stack
+cd ~/projects/smart4d/serverless
+launch --env KITTY_WINDOW_ID=4 nvim
+launch --env KITTY_WINDOW_ID=5 fish
+
+
+new_tab scrap_dice 
+layout stack
+cd ~/projects/smart4d/scrap_dice
+launch --env KITTY_WINDOW_ID=6 nvim 
+launch --env KITTY_WINDOW_ID=7 fish
