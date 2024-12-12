@@ -2,54 +2,64 @@
 
 new_tab bookipi-server-v2
 layout stack
-cd /home/akilon/projects/bookipi/bookipi-server-v2
-launch --env KITTY_WINDOW_ID=1 nvim 
+cd ~/projects/bookipi/bookipi-server-v2
+launch nvim 
 focus
-launch --env KITTY_WINDOW_ID=2 /usr/bin/fish
+launch fish
 
 
 new_tab bookipay-server
 layout stack
-cd /home/akilon/projects/bookipi/bookipay-server
-launch --env KITTY_WINDOW_ID=4 nvim
-launch --env KITTY_WINDOW_ID=5 /usr/bin/fish
+cd ~/projects/bookipi/bookipay-server
+launch nvim
+launch fish
 
 
 new_tab bookipi-accounting-web
 layout stack
-cd /home/akilon/projects/bookipi/bookipi-accounting-web
-launch --env KITTY_WINDOW_ID=6 nvim 
-launch --env KITTY_WINDOW_ID=7 /usr/bin/fish
+cd ~/projects/bookipi/bookipi-accounting-web
+launch nvim 
+launch fish
 
 
 new_tab payroller-web-partial 
 layout stack
-cd /home/akilon/projects/bookipi/payroller-web-partial
-launch --env KITTY_WINDOW_ID=10 nvim 
-launch --env KITTY_WINDOW_ID=11 /usr/bin/fish
+cd ~/projects/bookipi/payroller-web-partial
+launch nvim 
+launch fish
 
 
 new_tab bookipay-app
 layout stack
-cd /home/akilon/projects/bookipi/bookipay-app
-launch --env KITTY_WINDOW_ID=8 nvim 
-launch --env KITTY_WINDOW_ID=9 /usr/bin/fish
+cd ~/projects/bookipi/bookipay-app
+launch nvim 
+launch fish
 
 
 new_tab lua
 layout stack
-cd /home/akilon/.config/nvim/lua
-launch --env KITTY_WINDOW_ID=50 nvim 
+cd ~/dotfiles/nvim/lua
+launch nvim 
+launch fish
 
 
 new_tab kittens
 layout stack
-cd /home/akilon/.config/kitty
-launch --env KITTY_WINDOW_ID=51 nvim 
+cd ~/dotfiles/kitty
+launch nvim 
+launch fish
 
 
 new_tab fish
 layout stack
-cd /home/akilon/.config/fish
-launch --env KITTY_WINDOW_ID=52 nvim 
+cd ~/dotfiles/fish
+launch nvim 
+launch fish
+
+
+new_tab chatgpt.vim
+layout stack
+cd ~/projects/nvim/ChatGPT.nvim
+launch nvim 
+launch fish
 
