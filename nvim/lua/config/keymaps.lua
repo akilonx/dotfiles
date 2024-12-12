@@ -216,3 +216,19 @@ keymap.set("n", "<C-.>", ":CodeActionMenu<CR>", { noremap = true, silent = true,
 
 -- copilot chat
 keymap.set("v", "<leader>ce", ":'<,'>CopilotChatExplain<CR>", { noremap = true, silent = true })
+
+-- ChatGPT Keymaps
+keymap.set("n", "<leader>vv", ":ChatGPT<CR>", opts)
+keymap.set("v", "<leader>vv", ":ChatGPT<CR>", opts)
+keymap.set("v", "<leader>ce", ":'<,'>ChatGPTEditWithInstruction<CR>", opts)
+keymap.set("v", "<leader>cg", ":'<,'>ChatGPTRun grammar_correction<CR>", opts)
+keymap.set("v", "<leader>ct", ":'<,'>ChatGPTRun translate<CR>", opts)
+keymap.set("v", "<leader>ck", ":'<,'>ChatGPTRun keywords<CR>", opts)
+keymap.set("v", "<leader>cd", ":'<,'>ChatGPTRun docstring<CR>", opts)
+keymap.set("v", "<leader>ca", ":'<,'>ChatGPTRun add_tests<CR>", opts)
+keymap.set("v", "<leader>co", ":'<,'>ChatGPTRun optimize_code<CR>", opts)
+keymap.set("v", "<leader>cs", ":'<,'>ChatGPTRun summarize<CR>", opts)
+keymap.set("v", "<leader>cf", ":'<,'>ChatGPTRun fix_bugs<CR>", opts)
+keymap.set("v", "<leader>cx", ":'<,'>ChatGPTRun explain_code<CR>", opts)
+keymap.set("v", "<leader>cr", ":'<,'>ChatGPTRun roxygen_edit<CR>", opts)
+keymap.set("v", "<leader>cl", ":'<,'>ChatGPTRun code_readability_analysis<CR>", opts)
