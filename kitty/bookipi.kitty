@@ -2,7 +2,7 @@
 
 new_tab bookipi-server-v2
 layout stack
-cd ~/projects/bookipi/bookipi-server-v2
+cd ~/projects/bookipi/bookipi-server-v2/
 launch nvim 
 focus
 launch fish
@@ -10,56 +10,56 @@ launch fish
 
 new_tab bookipay-server
 layout stack
-cd ~/projects/bookipi/bookipay-server
+cd ~/projects/bookipi/bookipay-server/
 launch nvim
 launch fish
 
 
 new_tab bookipi-accounting-web
 layout stack
-cd ~/projects/bookipi/bookipi-accounting-web
+cd ~/projects/bookipi/bookipi-accounting-web/
 launch nvim 
 launch fish
 
 
 new_tab payroller-web-partial 
 layout stack
-cd ~/projects/bookipi/payroller-web-partial
+cd ~/projects/bookipi/payroller-web-partial/
 launch nvim 
 launch fish
 
 
 new_tab bookipay-app
 layout stack
-cd ~/projects/bookipi/bookipay-app
+cd ~/projects/bookipi/bookipay-app/
 launch nvim 
 launch fish
 
 
 new_tab lua
 layout stack
-cd ~/dotfiles/nvim/lua
+cd ~/dotfiles/nvim/lua/
 launch nvim 
 launch fish
 
 
 new_tab kittens
 layout stack
-cd ~/dotfiles/kitty
+cd ~/dotfiles/kitty/
 launch nvim 
 launch fish
 
 
 new_tab fish
 layout stack
-cd ~/dotfiles/fish
+cd ~/dotfiles/fish/
 launch nvim 
 launch fish
 
 
 new_tab chatgpt.vim
 layout stack
-cd ~/projects/nvim/ChatGPT.nvim
+cd ~/projects/nvim/ChatGPT.nvim/
 launch nvim 
 launch fish
 
