@@ -95,66 +95,6 @@ vim.keymap.set("n", "<leader><leader>", function()
   require("telescope.builtin").resume()
 end, { noremap = true, silent = true, desc = "Resume last Telescope picker" })
 
--- Harpoon keybindings
-keymap.set("n", "<leader>a", function()
-  require("harpoon.mark").add_file()
-end, { desc = "Add file to Harpoon", noremap = true, silent = true })
-
-keymap.set("n", "<C-e>", function()
-  require("harpoon.ui").toggle_quick_menu()
-end, { desc = "Open Harpoon Menu", noremap = true, silent = true })
-
-local function file_exists(path)
-  local file = io.open(path, "r")
-  if file then
-    file:close()
-    return true
-  else
-    return false
-  end
-end
-
--- Helper function to safely navigate to Harpoon files
-local function safe_nav_file(index)
-  local harpoon_ui = require("harpoon.ui")
-  local harpoon_mark = require("harpoon.mark")
-  local mark = harpoon_mark.get_marked_file(index)
-
-  if mark and file_exists(mark.filename) then
-    -- If the file exists, navigate to it
-    vim.cmd("edit " .. mark.filename)
-    harpoon_ui.nav_file(index)
-  else
-    -- File does not exist or is invalid
-    print("File does not exist or is not open!")
-  end
-end
-
--- Navigate between Harpoon files
-keymap.set("n", "<C-f>", function()
-  safe_nav_file(1)
-end, { desc = "Go to Harpoon File 1", noremap = true, silent = true })
-
-keymap.set("n", "<C-d>", function()
-  safe_nav_file(2)
-end, { desc = "Go to Harpoon File 2", noremap = true, silent = true })
-
-keymap.set("n", "<C-t>", function()
-  safe_nav_file(3)
-end, { desc = "Go to Harpoon File 3", noremap = true, silent = true })
-
-keymap.set("n", "<C-n>", function()
-  safe_nav_file(4)
-end, { desc = "Go to Harpoon File 4", noremap = true, silent = true })
-
-keymap.set("n", "<C-m>", function()
-  safe_nav_file(5)
-end, { desc = "Go to Harpoon File 5", noremap = true, silent = true })
-
-keymap.set("n", "<C-y>", function()
-  safe_nav_file(6)
-end, { desc = "Go to Harpoon File 6", noremap = true, silent = true })
-
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
 
