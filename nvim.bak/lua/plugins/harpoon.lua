@@ -17,8 +17,6 @@ return {
     })
     -- REQUIRED
 
-    vim.keymap.del("n", "<C-f>")
-
     vim.keymap.set("n", "<leader>a", function()
       harpoon:list():add()
     end)
@@ -26,18 +24,9 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end)
 
-    local wk = require("which-key")
-    wk.add({
-      {
-        "<C-f>",
-        function()
-          harpoon:list():select(2)
-        end,
-        desc = "Harpoon 1",
-        mode = "n",
-      },
-    })
-
+    vim.keymap.set("n", "<C-f>", function()
+      harpoon:list():select(1)
+    end)
     vim.keymap.set("n", "<C-d>", function()
       harpoon:list():select(2)
     end)

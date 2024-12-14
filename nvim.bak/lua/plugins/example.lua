@@ -171,6 +171,9 @@ return {
     event = "VeryLazy",
     opts = function()
       return {
+        show_tabs = false,
+        section_separators = "",
+        component_separators = "",
         --[[add your custom lualine config here]]
       }
     end,
