@@ -166,7 +166,7 @@ return {
     { "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },
     { "<c-k>", "<c-k>", ft = "fzf", mode = "t", nowait = true },
     {
-      "<leader>,",
+      "<Tab>",
       "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
       desc = "Switch Buffer",
     },
