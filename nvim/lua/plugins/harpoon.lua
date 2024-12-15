@@ -31,7 +31,7 @@ return {
       {
         "<C-f>",
         function()
-          harpoon:list():select(2)
+          harpoon:list():select(1)
         end,
         desc = "Harpoon 1",
         mode = "n",

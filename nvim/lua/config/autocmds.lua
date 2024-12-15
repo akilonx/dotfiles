@@ -24,6 +24,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd({ "BufWinEnter", "BufFilePost" }, {
   callback = function()
+    if not vim.bo.buflisted then
+      vim.cmd("setlocal buflisted")
+    end
     if vim.bo.filetype ~= "" and vim.fn.expand("%:p") ~= "" then
       -- Set the winbar to show the file name
       vim.opt_local.winbar = "%=%f%=" -- Centered filename

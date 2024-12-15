@@ -4,3 +4,6 @@
 --
 vim.g.snacks_animate = false
 vim.opt.shada = ""
+vim.g.copilot_filetypes = { ["*"] = true }
+
+vim.opt.swapfile = false
