@@ -8,7 +8,7 @@ return {
       enabled = true,
       auto_trigger = true,
       keymap = {
-        accept = "<CR>", -- Set Enter to confirm suggestions
+        accept = "<Right>", -- Set Enter to confirm suggestions
         next = "<C-j>", -- Navigate to the next suggestion
         prev = "<C-k>", -- Navigate to the previous suggestion
         dismiss = "<C-l>", -- Dismiss the suggestion
