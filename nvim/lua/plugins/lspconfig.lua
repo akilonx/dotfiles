@@ -8,6 +8,9 @@ return {
       eslint = {
         format = { enable = true }, -- Enable ESLint formatting
         setup = { cmd = { "vscode-eslint-language-server", "--stdio" } },
+        on_attach = function(client)
+          client.server_capabilities.documentFormattingProvider = true
+        end,
       },
       dartls = {},
       tsserver = {
@@ -15,6 +18,18 @@ return {
           typescript = {
             tsserver = {
               exclude = { "**/node_modules", "**/.git" },
+            },
+          },
+        },
+      },
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              diagnosticMode = "workspace",
+              useLibraryCodeForTypes = true,
+              typeCheckingMode = "basic", -- or "strict" for more rigorous checks
             },
           },
         },

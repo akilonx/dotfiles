@@ -63,3 +63,9 @@ cd ~/projects/nvim/ChatGPT.nvim/
 launch nvim 
 launch fish
 
+
+new_tab dashboard
+layout stack
+cd ~/projects/soonfatt/dashboard/
+launch nvim 
+launch fish

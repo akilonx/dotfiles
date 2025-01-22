@@ -17,7 +17,7 @@ return {
     })
     -- REQUIRED
 
-    vim.keymap.del("n", "<C-f>")
+    -- vim.keymap.del("n", "<C-f>")
 
     vim.keymap.set("n", "<leader>a", function()
       harpoon:list():add()
@@ -26,33 +26,42 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end)
 
-    local wk = require("which-key")
-    wk.add({
-      {
-        "<C-f>",
-        function()
-          harpoon:list():select(1)
-        end,
-        desc = "Harpoon 1",
-        mode = "n",
-      },
-    })
+    -- local wk = require("which-key")
+    -- wk.add({
+    --   {
+    --     "<C-f>",
+    --     function()
+    --       harpoon:list():select(1)
+    --     end,
+    --     desc = "Harpoon 1",
+    --     mode = "n",
+    --   },
+    -- })
 
+    vim.keymap.set("n", "<C-f>", function()
+      harpoon:list():select(1)
+    end, { noremap = true, silent = true })
     vim.keymap.set("n", "<C-d>", function()
       harpoon:list():select(2)
-    end)
+    end, { noremap = true, silent = true })
     vim.keymap.set("n", "<C-t>", function()
       harpoon:list():select(3)
-    end)
+    end, { noremap = true, silent = true })
     vim.keymap.set("n", "<C-n>", function()
       harpoon:list():select(4)
-    end)
-    vim.keymap.set("n", "<C-m>", function()
-      harpoon:list():select(5)
-    end)
+    end, { noremap = true, silent = true })
     vim.keymap.set("n", "<C-y>", function()
+      harpoon:list():select(5)
+    end, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-u>", function()
       harpoon:list():select(6)
-    end)
+    end, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-i>", function()
+      harpoon:list():select(7)
+    end, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-o>", function()
+      harpoon:list():select(8)
+    end, { noremap = true, silent = true })
 
     -- Toggle previous & next buffers stored within Harpoon list
     -- vim.keymap.set("n", "<C-S-P>", function()

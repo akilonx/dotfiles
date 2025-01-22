@@ -36,3 +36,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "BufFilePost" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*", -- Apply to all files, or specify filetypes like "*.js,*.ts"
+  callback = function()
+    vim.lsp.buf.format({ async = false }) -- Use async=false for blocking format before save
+  end,
+})

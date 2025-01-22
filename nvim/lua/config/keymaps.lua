@@ -23,7 +23,7 @@ local function custom_rename()
   end)
 end
 
-vim.keymap.set("n", "<F2>", custom_rename, { desc = "Custom Rename Symbol" })
+keymap.set("n", "<leader>re", custom_rename, opts)
 
 -- delete a word backwords
 keymap.set("n", "dw", "vb_d")
