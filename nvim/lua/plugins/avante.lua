@@ -1,5 +1,6 @@
 return {
   "yetone/avante.nvim",
+  dir = "~/projects/nvim/avante.nvim",
   event = "VeryLazy",
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
@@ -41,6 +42,14 @@ return {
         desc = "avante: focus",
         mode = { "n", "v", "i" },
       },
+      {
+        opts.mappings.focus_input,
+        function()
+          require("avante.api").focus_input()
+        end,
+        desc = "avante: focus input",
+        mode = { "n", "v", "i" },
+      },
     }
     mappings = vim.tbl_filter(function(m)
       return m[1] and #m[1] > 0
@@ -48,6 +57,18 @@ return {
     return vim.list_extend(mappings, keys)
   end,
   opts = {
+    -- provider = "openai", -- Recommend using Claude
+    provider = "claude", -- Recommend using Claude
+    openai = {
+      endpoint = "https://api.openai.com/v1",
+      -- model = "o1-2024-12-17",
+      model = "o1-preview",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 16384,
+      -- stream = true,
+    },
+    auto_suggestions_provider = "openai",
     -- add any opts here
     behaviour = {
       auto_focus_sidebar = true,
@@ -65,10 +86,10 @@ return {
       negate_patterns = {}, -- negate ignore files matching these.
     },
     mappings = {
-      ask = "<M-a>", -- Alt + a to ask
-      edit = "<M-e>", -- Alt + e to edit
-      refresh = "<M-s>", -- leader + ar to refresh
-      focus = "<M-f>", -- leader + ar to refresh
+      -- ask = "<A-a>", -- Alt + a to ask
+      edit = "<A-e>", -- Alt + e to edit
+      refresh = "<A-s>", -- leader + ar to refresh
+      focus_input = "<A-f>", -- leader + ar to refresh
       diff = {
         ours = "o",
         theirs = "t",
@@ -101,7 +122,13 @@ return {
         add_file = "a",
       },
       files = {
-        add_current = "<M-e>", -- Add current buffer to selected files
+        add_current = "<A-a>", -- Add current buffer to selected files
+      },
+    },
+
+    windows = {
+      input = {
+        height = 20,
       },
     },
   },

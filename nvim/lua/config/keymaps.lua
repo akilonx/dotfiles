@@ -38,6 +38,21 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 keymap.set("n", "<A-/>", ":vsplit<Return>", opts)
 keymap.set("n", "<A-c>", ":close<Return>", opts)
 
+-- Function to toggle between AI providers
+local current_provider = "claude" -- Default provider
+local function toggle_ai_provider()
+  if current_provider == "claude" then
+    current_provider = "openai"
+  else
+    current_provider = "claude"
+  end
+  vim.cmd(string.format(":AvanteSwitchProvider %s", current_provider))
+  vim.notify("Switched to " .. current_provider, vim.log.levels.INFO)
+end
+
+-- Single keymap to toggle between providers
+keymap.set("n", "<A-d>", toggle_ai_provider, opts)
+
 -- comments
 keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", opts)
 keymap.set("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
