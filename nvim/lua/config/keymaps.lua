@@ -35,7 +35,8 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- split window
-keymap.set("n", "<A-/>", ":split<Return>", opts)
+keymap.set("n", "<A-/>", ":vsplit<Return>", opts)
+keymap.set("n", "<A-c>", ":close<Return>", opts)
 
 -- comments
 keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", opts)
@@ -52,20 +53,20 @@ vim.cmd([[
 ]])
 
 -- ChatGPT Keymaps
-keymap.set("n", "<leader>vv", ":ChatGPT<CR>", opts)
-keymap.set("v", "<leader>vv", ":ChatGPT<CR>", opts)
-keymap.set("v", "<leader>ve", ":'<,'>ChatGPTEditWithInstruction<CR>", opts)
-keymap.set("v", "<leader>vg", ":'<,'>ChatGPTRun grammar_correction<CR>", opts)
-keymap.set("v", "<leader>vt", ":'<,'>ChatGPTRun translate<CR>", opts)
-keymap.set("v", "<leader>vk", ":'<,'>ChatGPTRun keywords<CR>", opts)
-keymap.set("v", "<leader>vd", ":'<,'>ChatGPTRun docstring<CR>", opts)
-keymap.set("v", "<leader>va", ":'<,'>ChatGPTRun add_tests<CR>", opts)
-keymap.set("v", "<leader>vo", ":'<,'>ChatGPTRun optimize_code<CR>", opts)
-keymap.set("v", "<leader>vs", ":'<,'>ChatGPTRun summarize<CR>", opts)
-keymap.set("v", "<leader>vf", ":'<,'>ChatGPTRun fix_bugs<CR>", opts)
-keymap.set("v", "<leader>vx", ":'<,'>ChatGPTRun explain_code<CR>", opts)
-keymap.set("v", "<leader>vr", ":'<,'>ChatGPTRun roxygen_edit<CR>", opts)
-keymap.set("v", "<leader>vl", ":'<,'>ChatGPTRun code_readability_analysis<CR>", opts)
+-- keymap.set("n", "<leader>vv", ":ChatGPT<CR>", opts)
+-- keymap.set("v", "<leader>vv", ":ChatGPT<CR>", opts)
+-- keymap.set("v", "<leader>ve", ":'<,'>ChatGPTEditWithInstruction<CR>", opts)
+-- keymap.set("v", "<leader>vg", ":'<,'>ChatGPTRun grammar_correction<CR>", opts)
+-- keymap.set("v", "<leader>vt", ":'<,'>ChatGPTRun translate<CR>", opts)
+-- keymap.set("v", "<leader>vk", ":'<,'>ChatGPTRun keywords<CR>", opts)
+-- keymap.set("v", "<leader>vd", ":'<,'>ChatGPTRun docstring<CR>", opts)
+-- keymap.set("v", "<leader>va", ":'<,'>ChatGPTRun add_tests<CR>", opts)
+-- keymap.set("v", "<leader>vo", ":'<,'>ChatGPTRun optimize_code<CR>", opts)
+-- keymap.set("v", "<leader>vs", ":'<,'>ChatGPTRun summarize<CR>", opts)
+-- keymap.set("v", "<leader>vf", ":'<,'>ChatGPTRun fix_bugs<CR>", opts)
+-- keymap.set("v", "<leader>vx", ":'<,'>ChatGPTRun explain_code<CR>", opts)
+-- keymap.set("v", "<leader>vr", ":'<,'>ChatGPTRun roxygen_edit<CR>", opts)
+-- keymap.set("v", "<leader>vl", ":'<,'>ChatGPTRun code_readability_analysis<CR>", opts)
 
 local harpoon = require("harpoon")
 
@@ -79,6 +80,7 @@ harpoon:setup({
     excluded_filetypes = { "harpoon" },
   },
 })
+
 vim.keymap.set("n", "<C-f>", function()
   harpoon:list():select(1)
 end, opts)
