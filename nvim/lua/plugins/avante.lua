@@ -58,8 +58,27 @@ return {
   end,
   opts = {
     -- provider = "openai", -- Recommend using Claude
-    provider = "claude", -- Recommend using Claude
+    -- provider = "claude", -- Recommend using Claude
+    provider = "deepseek", -- Recommend using Claude
+    deepseek = {
+      endpoint = "https://api.deepseek.com/v1",
+      model = "deepseek-chat",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 4096,
+      -- optional
+      api_key_name = "DEEPSEEK_API_KEY", -- default OPENAI_API_KEY if not set
+    },
     openai = {
+      endpoint = "https://api.openai.com/v1",
+      -- model = "o1-2024-12-17",
+      model = "chatgpt-4o-latest",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 16384,
+      -- stream = true,
+    },
+    o1 = {
       endpoint = "https://api.openai.com/v1",
       -- model = "o1-2024-12-17",
       model = "o1-preview",
@@ -127,8 +146,17 @@ return {
     },
 
     windows = {
+      position = "right",
+      wrap = true, -- similar to vim.o.wrap
+      width = 50, -- default % based on available width in vertical layout
+      height = 50, -- default % based on available height in horizontal layout
+      sidebar_header = {
+        enabled = true, -- true, false to enable/disable the header
+        align = "center", -- left, center, right for title
+        rounded = true,
+      },
       input = {
-        height = 20,
+        height = 30,
       },
     },
   },
@@ -147,12 +175,21 @@ return {
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
-
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<Right>", -- Set Enter to confirm suggestions
+          next = "<C-j>", -- Navigate to the next suggestion
+          prev = "<C-k>", -- Navigate to the previous suggestion
+          dismiss = "<C-l>", -- Dismiss the suggestion
+        },
+      },
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",
       opts = {
-        hints = { enabled = true },
+        hints = { enabled = false },
         -- recommended settings
         default = {
           embed_image_as_base64 = false,

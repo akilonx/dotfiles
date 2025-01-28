@@ -39,10 +39,14 @@ keymap.set("n", "<A-/>", ":vsplit<Return>", opts)
 keymap.set("n", "<A-c>", ":close<Return>", opts)
 
 -- Function to toggle between AI providers
-local current_provider = "claude" -- Default provider
+local current_provider = "deepseek" -- Default provider
 local function toggle_ai_provider()
   if current_provider == "claude" then
+    current_provider = "o1"
+  elseif current_provider == "o1" then
     current_provider = "openai"
+  elseif current_provider == "openai" then
+    current_provider = "deepseek"
   else
     current_provider = "claude"
   end
