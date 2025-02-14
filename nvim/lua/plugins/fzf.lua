@@ -171,13 +171,62 @@ return {
       desc = "Switch Buffer",
     },
     { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-    { "<a-r>", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
     { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
     { "<leader><space>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     -- find
     { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
     { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
-    { "<c-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+
+    {
+      "<a-r>",
+      function()
+        local root_dir = require("utils.root").git()
+        local fzf_lua = require("fzf-lua")
+        fzf_lua.live_grep({
+          cwd = root_dir,
+          rg_opts = "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
+          multiprocess = true,
+        })
+      end,
+      desc = "Find Live Grep (including hidden files)",
+    },
+    -- Find files at the current working directory
+    {
+      "<c-p>", -- <leader>e is used by oil.nvim for open file explorer in float window
+      function()
+        local root_dir = require("utils.root").git()
+        require("fzf-lua").files({
+          cwd = root_dir,
+          cwd_prompt = false,
+        })
+      end,
+      desc = "Find Files at project directory",
+    },
+    -- {
+    --   "<a-r>",
+    --   function()
+    --     local root_dir = require("utils.root").git()
+    --     local fzf_lua = require("fzf-lua")
+    --     fzf_lua.live_grep({
+    --       cwd = root_dir,
+    --       rg_opts = "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
+    --       multiprocess = true,
+    --     })
+    --   end,
+    --   desc = "Find Live Grep (including hidden files)",
+    -- },
+    -- -- Find files at the current working directory
+    -- {
+    --   "<c-p>", -- <leader>e is used by oil.nvim for open file explorer in float window
+    --   function()
+    --     local root_dir = require("utils.root").get()
+    --     require("fzf-lua").files({
+    --       cwd = root_dir,
+    --       cwd_prompt = false,
+    --     })
+    --   end,
+    --   desc = "Find Files at project directory",
+    -- },
     { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     { "<leader>fF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     { "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find Files (git-files)" },
@@ -207,8 +256,18 @@ return {
     { "<leader>sq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
     { "<leader>sw", LazyVim.pick("grep_cword"), desc = "Word (Root Dir)" },
     { "<leader>sW", LazyVim.pick("grep_cword", { root = false }), desc = "Word (cwd)" },
-    { "<leader>sw", LazyVim.pick("grep_visual"), mode = "v", desc = "Selection (Root Dir)" },
-    { "<leader>sW", LazyVim.pick("grep_visual", { root = false }), mode = "v", desc = "Selection (cwd)" },
+    {
+      "<leader>sw",
+      LazyVim.pick("grep_visual"),
+      mode = "v",
+      desc = "Selection (Root Dir)",
+    },
+    {
+      "<leader>sW",
+      LazyVim.pick("grep_visual", { root = false }),
+      mode = "v",
+      desc = "Selection (cwd)",
+    },
     { "<leader>uC", LazyVim.pick("colorschemes"), desc = "Colorscheme with Preview" },
 
     {

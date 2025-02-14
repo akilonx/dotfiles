@@ -11,6 +11,14 @@ return {
 
     local mappings = {
       {
+        opts.mappings.focus_results,
+        function()
+          require("avante.api").focus_results()
+        end,
+        desc = "avante: focus_results",
+        mode = { "n", "v", "i" },
+      },
+      {
         opts.mappings.ask,
         function()
           require("avante.api").toggle()
@@ -32,7 +40,8 @@ return {
           require("avante.api").edit()
         end,
         desc = "avante: edit",
-        mode = { "n", "v" },
+        -- mode = { "n", "v" },
+        mode = { "v" },
       },
       {
         opts.mappings.focus,
@@ -57,22 +66,23 @@ return {
     return vim.list_extend(mappings, keys)
   end,
   opts = {
-    -- provider = "openai", -- Recommend using Claude
+    provider = "openai", -- Recommend using Claude
     -- provider = "claude", -- Recommend using Claude
-    provider = "deepseek", -- Recommend using Claude
+    -- provider = "deepseek", -- Recommend using Claude
     deepseek = {
       endpoint = "https://api.deepseek.com/v1",
       model = "deepseek-chat",
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
-      max_tokens = 4096,
+      max_tokens = 8192,
       -- optional
       api_key_name = "DEEPSEEK_API_KEY", -- default OPENAI_API_KEY if not set
     },
     openai = {
       endpoint = "https://api.openai.com/v1",
       -- model = "o1-2024-12-17",
-      model = "chatgpt-4o-latest",
+      -- model = "chatgpt-4o-latest",
+      model = "o3-mini",
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
       max_tokens = 16384,
@@ -105,10 +115,11 @@ return {
       negate_patterns = {}, -- negate ignore files matching these.
     },
     mappings = {
-      -- ask = "<A-a>", -- Alt + a to ask
-      edit = "<A-e>", -- Alt + e to edit
+      ask = "<A-a>", -- Alt + a to ask
+      edit = "e", -- Alt + e to edit
       refresh = "<A-s>", -- leader + ar to refresh
       focus_input = "<A-f>", -- leader + ar to refresh
+      focus_results = "<A-d>",
       diff = {
         ours = "o",
         theirs = "t",
@@ -130,7 +141,7 @@ return {
       },
       submit = {
         normal = "<CR>",
-        insert = "<C-CR>",
+        insert = "<CR>",
       },
       sidebar = {
         apply_all = "A",
@@ -141,22 +152,22 @@ return {
         add_file = "a",
       },
       files = {
-        add_current = "<A-a>", -- Add current buffer to selected files
+        add_current = "<A-z>", -- Add current buffer to selected files
       },
     },
-
     windows = {
       position = "right",
       wrap = true, -- similar to vim.o.wrap
-      width = 50, -- default % based on available width in vertical layout
-      height = 50, -- default % based on available height in horizontal layout
+      width = 45, -- default % based on available width in vertical layout
+      height = 45, -- default % based on available height in horizontal layout
       sidebar_header = {
         enabled = true, -- true, false to enable/disable the header
         align = "center", -- left, center, right for title
         rounded = true,
       },
       input = {
-        height = 30,
+        -- height = 30,
+        height = 15,
       },
     },
   },

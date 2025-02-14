@@ -39,5 +39,11 @@ return {
         },
       },
     },
+    -- config = function()
+    --   -- Override highlight groups
+    --   vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#ff8800", bold = true }) -- Menu keys
+    --   vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#00ff88" }) -- Menu descriptions
+    --   vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#8888ff" }) -- Menu icons
+    -- end,
   },
 }

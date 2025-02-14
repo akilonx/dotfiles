@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   -- dir = "~/projects/neovim/ChatGPT.nvim", -- Replace with the actual path to your plugin directory
   dir = "~/projects/nvim/ChatGPT.nvim", -- Replace with the actual path to your plugin directory

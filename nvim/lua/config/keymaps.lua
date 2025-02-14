@@ -55,7 +55,7 @@ local function toggle_ai_provider()
 end
 
 -- Single keymap to toggle between providers
-keymap.set("n", "<A-d>", toggle_ai_provider, opts)
+keymap.set("n", "<A-x>", toggle_ai_provider, opts)
 
 -- comments
 keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)", opts)
@@ -109,3 +109,9 @@ vim.keymap.set("n", "<M-Left>", "<C-o>", { desc = "Jump backward" })
 
 -- Map Alt-Right to forward jump (default <C-i>)
 vim.keymap.set("n", "<M-Right>", "<C-i>", { desc = "Jump forward" })
+
+-- vim.keymap.set("n", "<leader>fe", ":Neotree toggle current reveal_force_cwd<cr>", { silent = true })
+-- vim.keymap.set("n", "<leader>fe", ":Neotree reveal<cr>", { silent = true })
+-- vim.keymap.set("n", "<leader>fe", ":Neotree float reveal_file=<cfile> reveal_force_cwd<cr>", { silent = true })
+-- vim.keymap.set("n", "<leader>fe", ":Neotree toggle show buffers right<cr>", { silent = true })
+-- vim.keymap.set("n", "<leader>s", ":Neotree float git_status<cr>", { silent = true })
