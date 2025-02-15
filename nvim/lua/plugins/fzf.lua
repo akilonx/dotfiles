@@ -45,10 +45,48 @@ return {
 
     return {
       "default-title",
-      fzf_colors = true,
+      hls = {
+        border = "FloatBorder",
+        cursorline = "Visual",
+        cursorlinenr = "Visual",
+        backdrop = "FzfLuaBackdrop",
+      },
+      fzf_colors = false,
+      -- History file
       fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
+        ["--info"] = false,
+        ["--border"] = false,
+        ["--preview-window"] = false,
         ["--no-scrollbar"] = true,
       },
+      -- winopts = {
+      --   width = 0.8,
+      --   height = 0.8,
+      --   row = 0.5,
+      --   col = 0.5,
+      --   preview = {
+      --     layout = "flex",
+      --     flip_columns = 130,
+      --     scrollchars = { "┃", "" },
+      --   },
+      --   backdrop = 60,
+      -- title         = "Title",
+      -- title_pos     = "center",        -- 'left', 'center' or 'right'
+      -- title_flags = false, -- uncomment to disable title flags
+      -- defaults keys:
+      -- alt-i: toggle ignore
+      -- alt-h: toggle hidden
+      -- alt-f: toggle follow
+      -- },
+      -- files = {
+      --   multiprocess = true,
+      --   git_icons = false,
+      --   file_icons = false,
+      -- },
+      -- grep = {
+      --   multiprocess = true,
+      -- },
       defaults = {
         -- formatter = "path.filename_first",
         formatter = "path.dirname_first",
@@ -70,11 +108,15 @@ return {
         return vim.tbl_deep_extend("force", fzf_opts, {
           prompt = " ",
           winopts = {
+
+            backdrop = 60,
             title = " " .. vim.trim((fzf_opts.prompt or "Select"):gsub("%s*:%s*$", "")) .. " ",
             title_pos = "center",
           },
         }, fzf_opts.kind == "codeaction" and {
           winopts = {
+
+            backdrop = 60,
             layout = "vertical",
             -- height is number of items minus 15 lines for the preview, with a max of 80% screen height
             height = math.floor(math.min(vim.o.lines * 0.8 - 16, #items + 2) + 0.5) + 16,
@@ -90,6 +132,7 @@ return {
           },
         } or {
           winopts = {
+            backdrop = 60,
             width = 0.5,
             -- height is number of items, with a max of 80% screen height
             height = math.floor(math.min(vim.o.lines * 0.8, #items + 2) + 0.5),
@@ -97,6 +140,8 @@ return {
         })
       end,
       winopts = {
+
+        backdrop = 60,
         width = 0.8,
         height = 0.8,
         row = 0.5,
@@ -106,6 +151,10 @@ return {
         },
       },
       files = {
+
+        git_icons = false,
+        file_icons = false,
+        multiprocess = true,
         cwd_prompt = false,
         actions = {
           ["alt-i"] = { actions.toggle_ignore },
@@ -113,6 +162,7 @@ return {
         },
       },
       grep = {
+        multiprocess = true,
         actions = {
           ["alt-i"] = { actions.toggle_ignore },
           ["alt-h"] = { actions.toggle_hidden },
@@ -127,30 +177,58 @@ return {
             return s:lower() .. "\t"
           end,
           child_prefix = false,
+          path_shorten = 1,
         },
         code_actions = {
-          previewer = vim.fn.executable("delta") == 1 and "codeaction_native" or nil,
+          winopts = {
+            -- previewer = vim.fn.executable("delta") == 1 and "codeaction_native" or nil,
+            preview = { layout = "reverse-list", horizontal = "right:75%" },
+          },
         },
       },
     }
   end,
-  config = function(_, opts)
-    if opts[1] == "default-title" then
-      -- use the same prompt for all pickers for profile `default-title` and
-      -- profiles that use `default-title` as base profile
-      local function fix(t)
-        t.prompt = t.prompt ~= nil and " " or nil
-        for _, v in pairs(t) do
-          if type(v) == "table" then
-            fix(v)
-          end
-        end
-        return t
+  config = function(_, options)
+    local fzf_lua = require("fzf-lua")
+    local actions = require("fzf-lua.actions")
+    local config = require("fzf-lua.config")
+
+    -- Files actions
+    config.defaults.actions.files["alt-."] = actions.toggle_hidden
+
+    -- Trouble
+    config.defaults.actions.files["ctrl-t"] = require("trouble.sources.fzf").actions.open
+
+    -- Refer https://github.com/ibhagwan/fzf-lua/blob/main/lua/fzf-lua/defaults.lua#L69 for default keymaps
+    -- Shift+up/down to move the preview window
+    -- Alt+q to send to quickfix
+    -- Alt+a to toggle all
+    fzf_lua.setup(options)
+
+    -- Automatic sizing of height/width of vim.ui.select
+    fzf_lua.register_ui_select(function(_, items)
+      local min_h, max_h = 0.60, 0.80
+      local h = (#items + 4) / vim.o.lines
+      if h < min_h then
+        h = min_h
+      elseif h > max_h then
+        h = max_h
       end
-      opts = vim.tbl_deep_extend("force", fix(require("fzf-lua.profiles.default-title")), opts)
-      opts[1] = nil
+      return { winopts = { height = h, width = 0.80, row = 0.40 } }
+    end)
+
+    -- Refer https://github.com/ibhagwan/fzf-lua/issues/602
+    vim.lsp.handlers["textDocument/codeAction"] = fzf_lua.lsp_code_actions
+    vim.lsp.handlers["textDocument/definition"] = function()
+      fzf_lua.lsp_definitions({ jump1 = true, ignore_current_line = true })
     end
-    require("fzf-lua").setup(opts)
+    vim.lsp.handlers["textDocument/declaration"] = fzf_lua.lsp_declarations
+    vim.lsp.handlers["textDocument/typeDefinition"] = fzf_lua.lsp_typedefs
+    vim.lsp.handlers["textDocument/implementation"] = fzf_lua.lsp_implementations
+    vim.lsp.handlers["textDocument/documentSymbol"] = fzf_lua.lsp_document_symbols
+    vim.lsp.handlers["workspace/symbol"] = fzf_lua.lsp_workspace_symbols
+    vim.lsp.handlers["callHierarchy/incomingCalls"] = fzf_lua.lsp_incoming_calls
+    vim.lsp.handlers["callHierarchy/outgoingCalls"] = fzf_lua.lsp_outgoing_calls
   end,
   init = function()
     LazyVim.on_very_lazy(function()

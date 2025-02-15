@@ -7,13 +7,13 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 -- turn off paste mode when leaving insert
-vim.diagnostic.config({
-  signs = false,
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
-})
+-- vim.diagnostic.config({
+--   signs = false,
+-- })
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   pattern = "*",
+--   command = "set nopaste",
+-- })
 
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "*",
@@ -22,33 +22,33 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 --     vim.opt_local.spell = false
 --   end,
 -- })
-vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = "*",
-  callback = function()
-    vim.opt.spell = false
-    vim.opt_local.spell = false
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.opt.spell = false
+--     vim.opt_local.spell = false
+--   end,
+-- })
 
 --
 --
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    vim.defer_fn(function()
-      vim.cmd("Copilot auth")
-      vim.cmd("Copilot enable")
-    end, 100)
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   callback = function()
+--     vim.defer_fn(function()
+--       vim.cmd("Copilot auth")
+--       vim.cmd("Copilot enable")
+--     end, 100)
+--   end,
+-- })
 
 -- fix conceallevel for json files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc" },
-  callback = function()
-    vim.wo.spell = false
-    vim.wo.conceallevel = 0
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "json", "jsonc" },
+--   callback = function()
+--     vim.wo.spell = false
+--     vim.wo.conceallevel = 0
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter", "BufFilePost" }, {
   callback = function()
@@ -65,16 +65,16 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "BufFilePost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*", -- Apply to all files, or specify filetypes like "*.js,*.ts"
-  callback = function()
-    vim.lsp.buf.format({ async = false }) -- Use async=false for blocking format before save
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*", -- Apply to all files, or specify filetypes like "*.js,*.ts"
+--   callback = function()
+--     vim.lsp.buf.format({ async = false }) -- Use async=false for blocking format before save
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.spell = false
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "*",
+--   callback = function()
+--     vim.opt_local.spell = false
+--   end,
+-- })
