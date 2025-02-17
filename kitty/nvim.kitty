@@ -1,0 +1,18 @@
+new_tab avante 
+layout stack
+cd ~/projects/nvim/avante.nvim/
+launch --env KITTY_WINDOW_ID=1 nvim 
+focus
+launch --env KITTY_WINDOW_ID=2 fish
+
+new_tab python
+layout stack
+cd ~/projects/nvim/python/
+launch --env KITTY_WINDOW_ID=4 nvim
+launch --env KITTY_WINDOW_ID=5 zsh
+
+new_tab nvim
+layout stack
+cd ~/.config/nvim/
+launch --env KITTY_WINDOW_ID=4 nvim
+launch --env KITTY_WINDOW_ID=5 zsh

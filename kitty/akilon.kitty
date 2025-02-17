@@ -1,0 +1,7 @@
+new_tab leetCode 
+layout stack
+cd ~/projects/akilon/leetCode/
+launch --env KITTY_WINDOW_ID=1 nvim 
+focus
+launch --env KITTY_WINDOW_ID=2 fish
+

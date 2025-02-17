@@ -1,0 +1,13 @@
+new_tab ratatui
+layout stack
+cd ~/projects/football/ratatui/
+launch --env KITTY_WINDOW_ID=4 nvim
+focus
+launch --env KITTY_WINDOW_ID=5 fish -c 'docker-compose up'
+launch --env KITTY_WINDOW_ID=6 fish
+
+new_tab ai
+layout stack
+cd ~/projects/football/ai/
+launch --env KITTY_WINDOW_ID=1 nvim 
+launch --env KITTY_WINDOW_ID=2 zsh

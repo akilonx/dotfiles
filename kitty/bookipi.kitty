@@ -2,7 +2,7 @@
 
 new_tab bookipi-server-v2
 layout stack
-cd ~/projects/bookipi/bookipi-server-v2/
+cd ~/projects/bookipi/serverv7/
 launch nvim 
 focus
 launch fish
@@ -38,34 +38,47 @@ launch fish
 
 new_tab lua
 layout stack
-cd ~/dotfiles/nvim/lua/
+cd ~/.config/nvim/lua/
 launch nvim 
 launch fish
 
 
 new_tab kittens
 layout stack
-cd ~/dotfiles/kitty/
+cd ~/.config/kitty/
 launch nvim 
 launch fish
 
 
 new_tab fish
 layout stack
-cd ~/dotfiles/fish/
+cd ~/.config/fish/
 launch nvim 
 launch fish
 
 
-new_tab chatgpt.vim
+new_tab nvim
 layout stack
-cd ~/projects/nvim/ChatGPT.nvim/
+cd ~/.config/nvim/
 launch nvim 
 launch fish
 
-
-new_tab dashboard
+new_tab algo
 layout stack
-cd ~/projects/soonfatt/dashboard/
+cd ~/projects/akilon/leetCode/algo/
 launch nvim 
 launch fish
+
+new_tab jstest
+layout stack
+cd ~/projects/bookipi/jstest/
+launch nvim 
+launch fish
+
+new_tab pythontest
+layout stack
+cd ~/projects/bookipi/pythontest/
+launch zsh -c 'source venv/bin/activate; exec zsh'
+launch zsh -c 'source venv/bin/activate; exec zsh'
+
+

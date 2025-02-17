@@ -10,11 +10,17 @@ new_tab graceapi
 layout stack
 cd ~/projects/grace/graceapi/
 launch --env KITTY_WINDOW_ID=4 nvim
-launch --env KITTY_WINDOW_ID=5 fish
+launch --env KITTY_WINDOW_ID=5 zsh
 
 
-new_tab app 
+new_tab flutter 
 layout stack
-cd ~/projects/grace/app/
+cd ~/projects/grace/flutter/app/
 launch --env KITTY_WINDOW_ID=6 nvim 
 launch --env KITTY_WINDOW_ID=7 fish
+
+new_tab crawler
+layout stack
+cd ~/projects/grace/crawler/
+launch --env KITTY_WINDOW_ID=8 nvim
+launch --env KITTY_WINDOW_ID=9 zsh
