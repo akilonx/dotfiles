@@ -10,7 +10,7 @@ dracula.setup({
     comment = "#6272A4",
     red = "#FF5555",
     orange = "#ff7eb6",
-    yellow = "#8a3ffc",
+    yellow = "#fddc69",
     green = "#08bdba",
     -- green = "#50fa7b",
     purple = "#BD93F9",
@@ -87,9 +87,9 @@ dracula.setup({
   -- end,
 })
 
-vim.cmd([[colorscheme dracula]])
+-- vim.cmd([[colorscheme dracula]])
 
-vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#007d79", bg = "NONE", bold = true })
-vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#007d79", bg = "NONE" })
-vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#007d79", bg = "NONE" })
-vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#007d79", bg = "NONE" })
+vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#BD93F9", bg = "NONE", bold = true })
+vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#BD93F9", bg = "NONE" })
+vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#BD93F9", bg = "NONE" })
+vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#BD93F9", bg = "NONE" })
