@@ -26,9 +26,9 @@ return {
               exclude = { "**/node_modules", "**/.git" },
             },
           },
-          implicitProjectConfiguration = {
-            checkJs = true,
-          },
+          -- implicitProjectConfiguration = {
+          --   checkJs = true,
+          -- },
         },
       },
       pyright = {

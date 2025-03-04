@@ -1,5 +1,6 @@
 -- Change the global to false to disable the eslint LSP start on startup
-local enable_eslint = vim.g.lsp_eslint_enable == "yes" or false
+-- local enable_eslint = vim.g.lsp_eslint_enable == "yes" or false
+local enable_eslint = true
 
 local Lsp = require("utils.lsp")
 

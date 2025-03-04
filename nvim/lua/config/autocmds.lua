@@ -50,6 +50,16 @@
 --   end,
 -- })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    -- If the ESLintFixAll command is available, run it
+    if vim.fn.exists(":EslintFixAll") == 2 then
+      vim.cmd("EslintFixAll")
+    end
+  end,
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+})
+
 vim.api.nvim_create_autocmd({ "BufWinEnter", "BufFilePost" }, {
   callback = function()
     --if not vim.bo.buflisted then

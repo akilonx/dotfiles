@@ -13,7 +13,7 @@ return {
       { "gp", "<cmd>Git push<CR>", desc = "Git push" },
       { "gl", "<cmd>Git pull<CR>", desc = "Git pull" },
       { "<leader>gs", "<cmd>Gdiffsplit<CR>", desc = "Git diff split" },
-      { "<leader>gb", "<cmd>Git blame<CR>", desc = "Git blame" },
+      { "<leader>gB", "<cmd>Git blame<CR>", desc = "Git blame" },
     },
   },
 }
