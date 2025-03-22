@@ -93,3 +93,6 @@ vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#BD93F9", bg = "NONE", b
 vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#BD93F9", bg = "NONE" })
 vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#BD93F9", bg = "NONE" })
 vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#BD93F9", bg = "NONE" })
+vim.api.nvim_create_user_command("CreateGithubRepo", function()
+  vim.cmd("!~/scripts/macos/create_github_repo.sh")
+end, { desc = "Automatically create a GitHub repo using GitHub CLI" })

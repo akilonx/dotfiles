@@ -32,7 +32,7 @@ return {
               desc = "Lint Fix",
             },
             {
-              "<leader>cB",
+              "<leader>cc",
               function()
                 -- NOTE:Migrate to LSP later if it's available
                 local file = vim.fn.fnameescape(vim.fn.expand("%:p")) -- Escape file path for shell

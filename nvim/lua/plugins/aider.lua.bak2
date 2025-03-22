@@ -19,7 +19,7 @@ return {
   dependencies = {
     "folke/snacks.nvim",
     --- The below dependencies are optional
-    -- "catppuccin/nvim",
+    "catppuccin/nvim",
     "nvim-tree/nvim-tree.lua",
   },
   config = function()
@@ -29,15 +29,16 @@ return {
       options = {},
       args = {
         "--edit-format",
-        "udiff",
-        "--editor-edit-format",
-        "editor-diff",
-        "--chat-mode",
-        "architect",
-        "--architect",
+        "diff",
+        -- "udiff",
+        -- "--editor-edit-format",
+        -- "editor-diff",
+        -- "--chat-mode",
+        -- "architect",
+        -- "--architect",
         "--model",
-        "gemini/gemini-2.0-flash-thinking-exp",
-        "--editor-model",
+        -- "gemini/gemini-2.0-flash-thinking-exp",
+        -- "--editor-model",
         "gemini/gemini-2.0-flash",
         "--multiline",
         "--cache-prompts",
@@ -49,20 +50,22 @@ return {
         "--check-update",
         -- "--yes", -- Automatically accept all file edits
         "--read",
+        "--subtree-only",
         "CONVENTIONS.md",
         "TEMPLATES.md",
       },
       -- Theme colors (automatically uses Catppuccin flavor if available)
+      --
       theme = {
-        user_input_color = "#a6da95",
-        tool_output_color = "#8aadf4",
-        tool_error_color = "#ed8796",
-        tool_warning_color = "#eed49f",
-        assistant_output_color = "#c6a0f6",
-        completion_menu_color = "#cad3f5",
-        completion_menu_bg_color = "#24273a",
-        completion_menu_current_color = "#181926",
-        completion_menu_current_bg_color = "#f4dbd6",
+        user_input_color = "#50fa7b", -- Green
+        tool_output_color = "#bd93f9", -- Purple
+        tool_error_color = "#ff5555", -- Red
+        tool_warning_color = "#f1fa8c", -- Yellow
+        assistant_output_color = "#666666", -- Lighter gray
+        completion_menu_color = "#f8f8f2", -- White
+        completion_menu_bg_color = "#282a36", -- Dark background
+        completion_menu_current_color = "#44475a", -- Selection foreground
+        completion_menu_current_bg_color = "#f8f8f2", -- Selection background
       },
       -- snacks.picker.layout.Config configuration
       picker_cfg = {
@@ -74,9 +77,17 @@ return {
         gui = { nerdFontsVersion = "3" },
       },
       win = {
+        backdrop = false,
+        position = "float",
+        border = "rounded",
+        title_pos = "center",
+        height = 0.9,
+        width = 0.7,
+        relative = "editor",
+        noautocmd = true,
         wo = { winbar = "Aider" },
         style = "nvim_aider",
-        position = "right",
+        -- position = "right",
       },
       settings = {
         available_options = { "defaults", "setup", "options", "args", "theme", "picker_cfg", "config", "win" },

@@ -8,8 +8,14 @@ local opts = { noremap = true, silent = true }
 
 keymap.set("n", "H", "30<C-U>zz", opts)
 keymap.set("n", "L", "30<C-D>zz", opts)
-keymap.set("n", "<A-j>", ":bnext<CR>", opts)
-keymap.set("n", "<A-k>", ":bprev<CR>", opts)
+keymap.set("n", "<A-j>", "gj", opts)
+keymap.set("n", "<A-k>", "gk", opts)
+-- Jump back to last cursor position
+keymap.set("n", "<A-h>", "<C-o>", { desc = "Jump Back (last cursor)" })
+
+-- (Optional) Jump forward
+keymap.set("n", "<A-l>", "<C-i>", { desc = "Jump Forward" })
+
 keymap.set("n", "<A-q>", ":bd<CR>", opts)
 keymap.set("n", "<C-q>", ":qa<CR>", opts)
 --keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>")
@@ -39,16 +45,14 @@ keymap.set("n", "<A-/>", ":vsplit<Return>", opts)
 keymap.set("n", "<A-c>", ":close<Return>", opts)
 
 -- Function to toggle between AI providers
-local current_provider = "deepseek" -- Default provider
+local current_provider = "gemini" -- Default provider
 local function toggle_ai_provider()
-  if current_provider == "claude" then
-    current_provider = "o1"
-  elseif current_provider == "o1" then
-    current_provider = "openai"
-  elseif current_provider == "openai" then
+  if current_provider == "gemini" then
     current_provider = "deepseek"
-  else
+  elseif current_provider == "deepseek" then
     current_provider = "claude"
+  else
+    current_provider = "gemini"
   end
   vim.cmd(string.format(":AvanteSwitchProvider %s", current_provider))
   vim.notify("Switched to " .. current_provider, vim.log.levels.INFO)
@@ -105,10 +109,10 @@ vim.keymap.set("n", "<C-f>", function()
 end, opts)
 
 -- Map Alt-Left to backward jump (default <C-o>)
-vim.keymap.set("n", "<M-Left>", "<C-o>", { desc = "Jump backward" })
+vim.keymap.set("n", "<M-h>", "<C-o>", { desc = "Jump backward" })
 
 -- Map Alt-Right to forward jump (default <C-i>)
-vim.keymap.set("n", "<M-Right>", "<C-i>", { desc = "Jump forward" })
+vim.keymap.set("n", "<M-l>", "<C-i>", { desc = "Jump forward" })
 
 -- vim.keymap.set("n", "<leader>fe", ":Neotree toggle current reveal_force_cwd<cr>", { silent = true })
 -- vim.keymap.set("n", "<leader>fe", ":Neotree reveal<cr>", { silent = true })

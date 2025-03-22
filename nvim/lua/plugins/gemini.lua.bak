@@ -3,7 +3,9 @@ return {
   config = function()
     require("gemini").setup({
       model_config = {
+
         completion_delay = 500,
+        --   -- model_id = api.MODELS.GEMINI_2_0_FLASH,
         temperature = 0,
         top_k = 20,
         max_output_tokens = 58196,
@@ -34,7 +36,7 @@ return {
         enabled = true,
         blacklist_filetypes = { "help", "qf", "json", "yaml", "toml" },
         blacklist_filenames = { ".env" },
-        completion_delay = 500,
+        completion_delay = 300,
         move_cursor_end = true,
         insert_result_key = "<Right>",
         get_system_text = function()

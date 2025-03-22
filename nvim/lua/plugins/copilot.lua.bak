@@ -7,11 +7,20 @@ return {
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = { "giuxtaposition/blink-cmp-copilot" },
+    dependencies = { "giuxtaposition/blink-cmp-copilot", "Kaiser-Yang/blink-cmp-avante" },
     opts = {
       sources = {
-        default = { "copilot" },
+        -- default = { "copilot" },
+        default = { "copilot", "avante", "lsp", "path", "luasnip", "buffer" },
         providers = {
+
+          avante = {
+            module = "blink-cmp-avante",
+            name = "Avante",
+            opts = {
+              -- options for blink-cmp-avante
+            },
+          },
           copilot = {
             name = "copilot",
             module = "blink-cmp-copilot",
